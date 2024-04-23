@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Журнал Запросов</title>
+</head>
+<body>
+    <h1>Запросы</h1>
+    <ul>
+        {% for log in query_logs %}
+            <li>{{ log.timestamp }} - {{ log.query }}</li>
+        {% endfor %}
+    </ul>
+    <h2><a href="/">Домой</a></h2>
+</body>
+</html>

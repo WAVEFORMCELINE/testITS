@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Бегущая строка</title>
+</head>
+<body>
+    <h1>Введите текст:</h1>
+    <form id="myForm" method="post">
+        {% csrf_token %}
+        <input type="text" id="text" name="text" placeholder="Введите текст">
+        <button type="submit">Создать видео</button>
+    </form>
+    <h2><a href="/">Домой</a></h2>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var text = document.getElementById("text").value;
+            var url = "{% url 'generate_video_page' %}" + text + "/";
+            window.open(url, '_blank');
+        });
+    </script>
+</body>
+</html>

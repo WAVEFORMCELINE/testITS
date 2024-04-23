@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-
+from logs.models import QueryLog
 
 def generate_video(text):
     width = 100
@@ -32,4 +32,8 @@ def generate_video(text):
     video_writer.release()
     with open("video.mp4", "rb") as f:
         video_data = f.read()
+
+    query = f"Бегущая строка: {text}"
+    QueryLog.objects.create(query=query)
+
     return video_data

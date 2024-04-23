@@ -17,8 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views import generate_video_view
+from .views import logs_view
+from .views import generate_video_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('generate-video/<str:text>/', generate_video_view, name='generate_video')
+    path('generate-video/<str:text>/', generate_video_view, name='generate_video_url'),
+    path('generate-video/', generate_video_page, name='generate_video_page'),
+    path('logs/', logs_view, name='query_logs')
 ]
